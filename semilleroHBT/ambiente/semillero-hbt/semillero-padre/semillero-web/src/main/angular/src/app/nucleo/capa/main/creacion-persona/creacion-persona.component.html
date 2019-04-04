@@ -1,0 +1,71 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<div class="wrapper">
+    <div class="form-group">
+        <label for="id">ID</label>
+        <input type="number" class="form-control" id="id" placeholder="id" [(ngModel)]="persona.id" name="id" />
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+
+            <label for="tidentificacion">Tipo de identificacion</label><br>
+            <select class="form-control"  [(ngModel)]="persona.tipoIdentificacion" name="tipoIdentificacion" ng-init="options[1].value"> 
+                <option value="Tarjeta de identidad">Tarjeta de identidad</option>
+                <option value="Cedula de ciudadania">Cedula de ciudadania</option>
+            </select>
+
+        </div>
+        <div class="form-group col-md-6">
+            <label for="nidentificacion">Numero de identificacion</label>
+            <input id="nidentificacion" class="form-control" type="text" placeholder="Numero de identificacion"
+                [(ngModel)]="persona.numeroIdentificacion" name="numeroIdentificacion" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" class="form-control" type="text" placeholder="Nombre" [(ngModel)]="persona.nombre" name="nombre" />
+
+        </div>
+        <div class="form-group col-md-6">
+
+            <label for="apellido">Apellido</label>
+            <input id="apellido" class="form-control" type="text" placeholder="Apellido" [(ngModel)]="persona.apellido"
+                name="apellido" />
+        </div>
+    </div>
+    <!-- <div class="btn-group">
+        <button type="button" class="btn btn-default" (click)="miFunction()">Guardar</button>
+    </div> -->
+    <!-- <p>
+        Nombre de usuario: {{usuario.nombre}} <br />
+    </p>
+    <tr ng-repeat="nombre in usuario.nombre | limitTo:2">
+        <td>{{usuario.nombre}}</td>
+        
+    </tr> -->
+
+    <h2>Personas </h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tipo de identificacion</th>
+                <th>Numero de identificacion</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="persona in personas">
+                <td>{{persona.id}}</td>
+                <td>{{persona.tipoIdentificacion}}</td>
+                <td>{{persona.numeroIdentificacion}}</td>
+                <td>{{persona.nombre}}</td>
+                <td>{{persona.apellido}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
