@@ -10,7 +10,7 @@
         <div class="form-group col-md-6">
 
             <label for="tidentificacion">Tipo de identificacion</label><br>
-            <select class="form-control"  [(ngModel)]="persona.tipoIdentificacion" name="tipoIdentificacion" ng-init="options[1].value"> 
+            <select class="form-control" [(ngModel)]="persona.tipoIdentificacion" name="tipoIdentificacion" ng-init="options[1].value">
                 <option value="Tarjeta de identidad">Tarjeta de identidad</option>
                 <option value="Cedula de ciudadania">Cedula de ciudadania</option>
             </select>
@@ -35,16 +35,6 @@
                 name="apellido" />
         </div>
     </div>
-    <!-- <div class="btn-group">
-        <button type="button" class="btn btn-default" (click)="miFunction()">Guardar</button>
-    </div> -->
-    <!-- <p>
-        Nombre de usuario: {{usuario.nombre}} <br />
-    </p>
-    <tr ng-repeat="nombre in usuario.nombre | limitTo:2">
-        <td>{{usuario.nombre}}</td>
-        
-    </tr> -->
 
     <h2>Personas </h2>
     <table class="table">
@@ -68,4 +58,10 @@
             </tr>
         </tbody>
     </table>
+    <!-- Intente crear un boton para que al dar click fueran apareciendo los nuevos registros de cada persona, 
+        sin embargo no pude implementar correctamente el metodo  -->
+    <!-- <div class="btn-group">
+        <button type="button" class="btn btn-default" (click)="miFunction();">Guardar"</button>
+    </div> -->
+
 </div>

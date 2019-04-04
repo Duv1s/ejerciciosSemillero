@@ -15,7 +15,8 @@ export class CreacionPersonaComponent implements OnInit {
         numeroIdentificacion: ''
     };
 
-    identificacion = ['a', 'b'];
+    // Intente cargar la identificacion desde un vector pero no pude
+    // identificacion = ['a', 'b'];
 
     constructor() { }
 
