@@ -5,7 +5,9 @@ export interface personaDTO {
     tipoIdentificacion: string;
     numeroIdentificacion: number | string;
     numeroTelefonico : string;
-    fechaNacimiento : number;
+    fechaNacimiento : Date;
     mayorEdad: boolean;
-    sexo: string;
+    sexo: string; 
+    comprador : boolean;
+    vendedor : boolean;
 }

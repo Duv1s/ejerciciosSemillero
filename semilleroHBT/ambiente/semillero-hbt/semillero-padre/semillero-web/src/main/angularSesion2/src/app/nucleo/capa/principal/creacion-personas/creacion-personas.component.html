@@ -6,74 +6,138 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
+
+<input *ngIf="formHidden==true" value="Agregar Persona" type="button" (click)="mostrar()" />
+<input *ngIf="formHidden==false" value="Ocultar Formulario" type="button" (click)="ocultar()" />
 <div class="wrapper">
+    <form *ngIf="formHidden==false">
+        <div class="form-row">
+            <div class="form-group col-md-6">
 
-    <div class="form-row">
-        <div class="form-group col-md-6">
+                <label for="tidentificacion">Tipo de identificacion</label>
+                <br>
+                <select class="form-control" [(ngModel)]="persona.tipoIdentificacion" name="tipoIdentificacion">
+                    <option value="Tarjeta de identidad">Tarjeta de identidad</option>
+                    <option value="Cedula de ciudadania">Cedula de ciudadania</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                </select>
 
-            <label for="tidentificacion">Tipo de identificacion</label>
-            <br>
-            <select class="form-control" [(ngModel)]="persona.tipoIdentificacion" name="tipoIdentificacion"
-                ng-init="options[1].value">
-                <option value="Tarjeta de identidad">Tarjeta de identidad</option>
-                <option value="Cedula de ciudadania">Cedula de ciudadania</option>
-            </select>
-
+            </div>
+            <div class="form-group col-md-6">
+                <label for="nidentificacion">Numero de identificacion</label>
+                <input id="nidentificacion" class="form-control" type="text" placeholder="Numero de identificacion"
+                    [(ngModel)]="persona.numeroIdentificacion" name="numeroIdentificacion" />
+            </div>
         </div>
-        <div class="form-group col-md-6">
-            <label for="nidentificacion">Numero de identificacion</label>
-            <input id="nidentificacion" class="form-control" type="text" placeholder="Numero de identificacion"
-                [(ngModel)]="persona.numeroIdentificacion" name="numeroIdentificacion" />
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="nombre">Nombres</label>
-            <input id="nombre" class="form-control" type="text" placeholder="Nombre" [(ngModel)]="persona.nombre"
-                name="nombre" />
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="nombre">Nombres</label>
+                <input id="nombre" class="form-control" type="text" placeholder="Nombre" [(ngModel)]="persona.nombre"
+                    name="nombre" />
 
-        </div>
-        <div class="form-group col-md-6">
+            </div>
+            <div class="form-group col-md-6">
 
-            <label for="apellido">Apellidos</label>
-            <input id="apellido" class="form-control" type="text" placeholder="Apellido" [(ngModel)]="persona.apellido"
-                name="apellido" />
+                <label for="apellido">Apellidos</label>
+                <input id="apellido" class="form-control" type="text" placeholder="Apellido"
+                    [(ngModel)]="persona.apellido" name="apellido" />
+            </div>
         </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="numeroTelefonico">Numero telefonico</label>
-            <input id="numeroTelefonico" class="form-control" type="text" placeholder="Numero Telefonico"
-                [(ngModel)]="persona.numeroTelefonico" name="numeroTelefonico" />
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="numeroTelefonico">Numero telefonico</label>
+                <input id="numeroTelefonico" class="form-control" type="text" placeholder="Numero Telefonico"
+                    [(ngModel)]="persona.numeroTelefonico" name="numeroTelefonico" />
+            </div>
+            <div class="form-group col-md-6">
 
-        </div>
-        <div class="form-group col-md-6">
+                <label for="fechaNacimiento">Fecha de Nacimiento</label><br>
 
-            <label for="edad">Edad</label>
-            <input id="fechaNacimiento" class="form-control" type="text" placeholder="Fecha de nacimiento"
-                [(ngModel)]="persona.fechaNacimiento" name="fechaNacimiento" />
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="estado">Estado</label>
-            <br>
-            <label>Mayor de edad
-                <input type="checkbox" [(ngModel)]="persona.mayorEdad"></label>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" [(ngModel)]="persona.fechaNacimiento"
+                    placeholder="yyyy-MM-dd" />
 
-            <!-- <select class="form-control" [(ngModel)]="mayorEdad" name="estado" ng-init="options[1].value">
-                <option value="Tarjeta de identidad">Mayor de edad</option>
-                <option value="Cedula de ciudadania">Menor de edad</option>
-            </select> -->
+            </div>
         </div>
-    </div>
-    <!-- <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="roles">Roles</label>
-            <br>
-            <input type="checkbox" ng-model="roles" [name="string" ] [ng-true-value="expression" ]
-                [ng-false-value="expression" ] [ng-change="string" ]>
-        </div>
-    </div> Hasta aqui voy bien, voy a revisar que se haga uso del persona DTO -->
+        <div class="form-row">
+                <div class="form-group col-md-6">
+                        <label for="sexo">Sexo</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="radioMasculino" name="radioMasculino"
+                                [(ngModel)]="persona.sexo" value='Masculino' checked='checked'>
+                            <label class="form-check-label" for="radioMasculino">Maculino</label>
+                        </div>
+        
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="radioFemenino" name="radioFemenino"
+                                [(ngModel)]="persona.sexo" value='Femenino'>
+                            <label class="form-check-label" for="radioFemenino">Femenino</label>
+                        </div>
+                    </div>
+            <div class="form-group col-md-6">
+                <label for="estado">Estado</label>
+                <br>
 
+                <label>Mayor de edad?
+                    <input type="checkbox" [(ngModel)]="persona.mayorEdad"  name="checkMayoriaEdad">
+                </label>
+             
+            </div>
+           
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="sexo">Roles</label>
+                <div class="form-check">
+                    
+                    <input type="checkbox"  id="checkComprador" [(ngModel)]="persona.comprador" name="checkComprador">
+                    <label class="form-check-label" for="checkComprador">Comprador</label>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <input type="checkbox"  id="checkVendedor" [(ngModel)]="persona.vendedor" name="CheckVendedor">
+                    <label class="form-check-label" for="checkVendedor">Vendedor</label>
+                </div>
+
+            </div>
+        </div>
+
+        <input value="Ingresar" type="button" (click)="guardar()" />
+    </form>
+
+    <h2>Gestionar personas </h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tipo de identificacion</th>
+                <th>Numero de identificacion</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Numero telefonico</th>
+                <th>Edad</th>
+                <th>Estado</th>
+             
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let per  of personas">
+                <td>{{per.tipoIdentificacion | lowercase}}</td>
+                <td>{{per.numeroIdentificacion | lowercase }}</td>
+                <td>{{per.nombre| lowercase}}</td>
+                <td>{{per.apellido| lowercase}}</td>
+                <td>{{per.numeroTelefonico| lowercase}}</td>
+                <td>{{getAge(per.fechaNacimiento)}}</td>
+                <td *ngIf="per.mayorEdad">mayor de edad</td>
+                <td *ngIf="!per.mayorEdad">menor de edad</td>
+                <!-- <td>{{per.mayorEdad | lowercase}}</td> -->
+                <!-- <td>{{per.sexo| lowercase}}</td> -->
+                <!-- <td>{{per.comprador| lowercase}} {{per.vendedor| lowercase}}</td> -->
+                <!-- <td *ngIf="per.comprador">Comprador <p >Vendedor </p></td> -->
+
+                    <input value="Borrar" type="button" (click)="borrar(per)">
+                    <input value="Editar" type="button" (click)="editar(per)">
+                
+            </tr>
+        </tbody>
+    </table>
 </div>

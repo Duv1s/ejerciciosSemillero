@@ -15,15 +15,15 @@ export class ApoyoComponent implements OnInit {
 
   ngOnInit() {
 
-    this.persona = {
-      id: '0',
-      nombre: '',
-      apellido: '',
-      tipoIdentificacion: '',
-      numeroIdentificacion: '',
-      mayorEdad: false,
-      sexo: ''
-    };
+    // this.persona = {
+      // id: '0',
+      // nombre: '',
+      // apellido: '',
+      // tipoIdentificacion: '',
+      // numeroIdentificacion: '',
+      // mayorEdad: false,
+      // sexo: ''
+    // };
 
     this.personas = [];
     this.mostrarFormulario = true;
