@@ -1,0 +1,20 @@
+<form>
+    <input value="Mostrar Formulario" type="button" (click)="mostrar()" /><br>
+    <input value="Mostrar Formulario" type="button" (click)="ocultar()" />
+    <section>
+        <label for="name">Nombre persona</label>
+        <input name="name" type="text"  [(ngModel)]="persona.nombre"  placeholder="Nombre persona" />
+      </section>
+      <input value="Guardar" type="button" (click)="guardar()" />
+  
+      <ul  *ngIf="personas.length>0;"> 
+        <li *ngFor="let per of personas">
+          <span> {{per.nombre | lowercase}}</span>
+          <span>{{per.apellido | uppercase}}  </span>
+          <input value="Borrar" type="button" (click)="borrar(per)">
+        </li>
+      </ul>
+
+      <!-- <div #empty>La tabla está vacía</div> -->
+      <pre>{{ persona | json }}</pre>
+</form>

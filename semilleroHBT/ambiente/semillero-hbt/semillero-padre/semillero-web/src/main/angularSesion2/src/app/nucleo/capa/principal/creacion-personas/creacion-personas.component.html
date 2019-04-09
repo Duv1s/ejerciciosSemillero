@@ -1,0 +1,79 @@
+<h2>{{ header }}</h2>
+<!-- <p>{{ nombre | uppercase }}</p>
+<p>{{ apellidos | uppercase }}</p>
+<p>{{ tipoIdentificacion | uppercase }}</p> -->
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<div class="wrapper">
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+
+            <label for="tidentificacion">Tipo de identificacion</label>
+            <br>
+            <select class="form-control" [(ngModel)]="persona.tipoIdentificacion" name="tipoIdentificacion"
+                ng-init="options[1].value">
+                <option value="Tarjeta de identidad">Tarjeta de identidad</option>
+                <option value="Cedula de ciudadania">Cedula de ciudadania</option>
+            </select>
+
+        </div>
+        <div class="form-group col-md-6">
+            <label for="nidentificacion">Numero de identificacion</label>
+            <input id="nidentificacion" class="form-control" type="text" placeholder="Numero de identificacion"
+                [(ngModel)]="persona.numeroIdentificacion" name="numeroIdentificacion" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="nombre">Nombres</label>
+            <input id="nombre" class="form-control" type="text" placeholder="Nombre" [(ngModel)]="persona.nombre"
+                name="nombre" />
+
+        </div>
+        <div class="form-group col-md-6">
+
+            <label for="apellido">Apellidos</label>
+            <input id="apellido" class="form-control" type="text" placeholder="Apellido" [(ngModel)]="persona.apellido"
+                name="apellido" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="numeroTelefonico">Numero telefonico</label>
+            <input id="numeroTelefonico" class="form-control" type="text" placeholder="Numero Telefonico"
+                [(ngModel)]="persona.numeroTelefonico" name="numeroTelefonico" />
+
+        </div>
+        <div class="form-group col-md-6">
+
+            <label for="edad">Edad</label>
+            <input id="fechaNacimiento" class="form-control" type="text" placeholder="Fecha de nacimiento"
+                [(ngModel)]="persona.fechaNacimiento" name="fechaNacimiento" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="estado">Estado</label>
+            <br>
+            <label>Mayor de edad
+                <input type="checkbox" [(ngModel)]="persona.mayorEdad"></label>
+
+            <!-- <select class="form-control" [(ngModel)]="mayorEdad" name="estado" ng-init="options[1].value">
+                <option value="Tarjeta de identidad">Mayor de edad</option>
+                <option value="Cedula de ciudadania">Menor de edad</option>
+            </select> -->
+        </div>
+    </div>
+    <!-- <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="roles">Roles</label>
+            <br>
+            <input type="checkbox" ng-model="roles" [name="string" ] [ng-true-value="expression" ]
+                [ng-false-value="expression" ] [ng-change="string" ]>
+        </div>
+    </div> Hasta aqui voy bien, voy a revisar que se haga uso del persona DTO -->
+
+</div>
