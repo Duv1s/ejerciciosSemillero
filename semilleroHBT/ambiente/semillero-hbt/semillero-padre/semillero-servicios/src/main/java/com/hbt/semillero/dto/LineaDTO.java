@@ -1,106 +1,109 @@
 package com.hbt.semillero.dto;
 
-
 import java.io.Serializable;
 
 /**
- *
- * Clase creada para la transferencia de datos que representa Linea de un vehículo
+ * Objeto de transferencia que mapea los atributos de la entidad Linea
+ * 
+ * @author Johnny Soto
  *
  */
-public class LineaDTO implements Serializable{
+public class LineaDTO implements Serializable {
+
+	/**
+	 * Serial
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Identificador de una linea de un vehículo
+	 * Identificador único de la línea
 	 */
 	private Long idLinea;
 
 	/**
-	 * Nombre de la linea de un vehículo
+	 * Nombre de la línea.
 	 */
 	private String nombre;
-
 	/**
-	 * Cilindraje de un vehiculo en cc
+	 * Cilindraje
 	 */
 	private int cilindraje;
 
 	/**
-	 * Marca a la que peretenece una linea de un vehiculo
-	 * Ejemplo una linea Clio es de la marca Renault
+	 * Marca
 	 */
 	private MarcaDTO marca;
 
 	/**
-	 * Método que permite obtener el atributo idLinea
-	 * @return idLinea
+	 * Método que obtiene el valor de la propiedad idLinea
+	 * 
+	 * @return the idLinea
 	 */
 	public Long getIdLinea() {
 		return idLinea;
 	}
 
 	/**
-	 * Método que permite modificar el atributo idLinea.
-	 * @param idLinea
+	 * Método que asigna el valor de la propiedad idLinea
+	 * 
+	 * @param idLinea the idLinea to set
 	 */
 	public void setIdLinea(Long idLinea) {
 		this.idLinea = idLinea;
 	}
 
 	/**
-	 * Método que permite obtener el atributo nombre
-	 * @return nombre
+	 * Método que obtiene el valor de la propiedad nombre
+	 * 
+	 * @return the nombre
 	 */
 	public String getNombre() {
 		return nombre;
 	}
 
 	/**
-	 * Método que permite modificar el atributo nombre.
-	 * @param nombre
+	 * Método que asigna el valor de la propiedad nombre
+	 * 
+	 * @param nombre the nombre to set
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
 	/**
-	 * Método que permite obtener el atributo cilindraje
-	 * @return cilindraje
+	 * Método que obtiene el valor de la propiedad cilindraje
+	 * 
+	 * @return the cilindraje
 	 */
 	public int getCilindraje() {
 		return cilindraje;
 	}
 
 	/**
-	 * Método que permite modificar el atributo cilindraje.
-	 * @param cilindraje
+	 * Método que asigna el valor de la propiedad cilindraje
+	 * 
+	 * @param cilindraje the cilindraje to set
 	 */
 	public void setCilindraje(int cilindraje) {
 		this.cilindraje = cilindraje;
 	}
 
 	/**
-	 * Método que permite obtener el atributo marca
-	 * @return marca
+	 * Método que obtiene el valor de la propiedad marca
+	 * 
+	 * @return the marca
 	 */
 	public MarcaDTO getMarca() {
 		return marca;
 	}
 
 	/**
-	 * Método que permite modificar el atributo marca.
-	 * @param marca
+	 * Método que asigna el valor de la propiedad marca
+	 * 
+	 * @param marca the marca to set
 	 */
 	public void setMarca(MarcaDTO marca) {
 		this.marca = marca;
 	}
 
-	/**
-	 * Método que permite obtener el atributo serialversionuid
-	 * @return serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 }

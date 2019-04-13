@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-capa',
-    templateUrl: './capa.component.html',
-    styleUrls: ['./capa.component.css']
+  selector: 'app-capa',
+  templateUrl: './capa.component.html'
 })
 export class CapaComponent implements OnInit {
 
-    constructor() { }
+  constructor() { }
 
-    ngOnInit() {
-    }
+  ngOnInit() {
+  }
 
 }

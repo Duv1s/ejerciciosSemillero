@@ -2,59 +2,73 @@ package com.hbt.semillero.dto;
 
 import java.io.Serializable;
 
-
 /**
- * Clase creada para la transferencia de datos que representa el resultado de una transacción.
- * @author Duvis Alejandro Gómez Neira
+ * Indica el resultado de ejecución.
+ * 
+ * @author Johnny Soto
  *
  */
 public class ResultadoDTO implements Serializable {
 
 	/**
-	 * Variable para almacenar el estado de una transacción Si es exitosa tomará el
-	 * valor true, de lo contrario tomará el valor false.
+	 * Serial
 	 */
-	private boolean exitoso;
+	private static final long serialVersionUID = 1L;
+	/**
+	 * Indicador de resultado.
+	 */
+	private boolean exitoso = false;
+	/**
+	 * Mensaje de ejecución.
+	 */
+	private String mensajeEjecucion;
 
 	/**
-	 * Variable para almacenar un posible mensaje de error
-	 */
-	private String mensajeError;
-
-	/**
-	 * Método que permite obtener el atributo exitoso
+	 * Constructor de la clase.
 	 * 
-	 * @return exitoso
+	 * @param exitoso
+	 * @param mensajeEjecucion
+	 */
+	public ResultadoDTO(boolean exitoso, String mensajeEjecucion) {
+		super();
+		this.exitoso = exitoso;
+		this.mensajeEjecucion = mensajeEjecucion;
+	}
+
+	/**
+	 * Método que obtiene el valor de la propiedad exitoso
+	 * 
+	 * @return the exitoso
 	 */
 	public boolean isExitoso() {
 		return exitoso;
 	}
 
 	/**
-	 * Método que permite modificar el atributo exitoso.
+	 * Método que asigna el valor de la propiedad exitoso
 	 * 
-	 * @param exitoso
+	 * @param exitoso the exitoso to set
 	 */
 	public void setExitoso(boolean exitoso) {
 		this.exitoso = exitoso;
 	}
 
 	/**
-	 * Método que permite obtener el atributo mensajeError
+	 * Método que obtiene el valor de la propiedad mensajeEjecucion
 	 * 
-	 * @return mensajeError
+	 * @return the mensajeEjecucion
 	 */
-	public String getMensajeError() {
-		return mensajeError;
+	public String getMensajeEjecucion() {
+		return mensajeEjecucion;
 	}
 
 	/**
-	 * Método que permite modificar el atributo mensajeError.
+	 * Método que asigna el valor de la propiedad mensajeEjecucion
 	 * 
-	 * @param mensajeError
+	 * @param mensajeEjecucion the mensajeEjecucion to set
 	 */
-	public void setMensajeError(String mensajeError) {
-		this.mensajeError = mensajeError;
+	public void setMensajeEjecucion(String mensajeEjecucion) {
+		this.mensajeEjecucion = mensajeEjecucion;
 	}
 
 }

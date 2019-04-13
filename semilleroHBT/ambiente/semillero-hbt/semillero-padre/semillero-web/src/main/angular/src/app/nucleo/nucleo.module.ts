@@ -1,18 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { CapaComponent } from './capa/capa.component';
 import { EncabezadoComponent } from './capa/encabezado/encabezado.component';
-import { MainComponent } from './capa/main/main.component';
-import { PiepaginaComponent } from './capa/piepagina/piepagina.component';
-import { CreacionPersonaComponent } from './capa/main/creacion-persona/creacion-persona.component';
+import { PrincipalComponent } from './capa/principal/principal.component';
+import { PiePaginaComponent } from './capa/pie-pagina/pie-pagina.component';
+import { CreacionPersonasComponent } from './capa/principal/creacion-personas/creacion-personas.component';
+import { ApoyoComponent } from './capa/principal/apoyo/apoyo.component';
 import { FormsModule } from '@angular/forms';
+import { GestionVehiculosComponent } from './capa/principal/gestion-vehiculos/gestion-vehiculos.component';
+import { FiltrosComponent } from './capa/principal/gestion-vehiculos/filtros/filtros.component';
+import { ResultadosComponent } from './capa/principal/gestion-vehiculos/resultados/resultados.component';
+import { ConsultaVehiculosService } from './servicios/consulta-vehiculo-servicio/consulta.vehiculo.service'
 
+//Nucleo representa al modulo que va a contener los componentes que van a orquestar la aplicacion 
+//Debe ser importado en el componente principal AppModule
 @NgModule({
-  declarations: [CapaComponent, EncabezadoComponent, MainComponent, PiepaginaComponent, CreacionPersonaComponent],
+  declarations: [CapaComponent, EncabezadoComponent, PrincipalComponent, PiePaginaComponent, CreacionPersonasComponent, ApoyoComponent, GestionVehiculosComponent, FiltrosComponent, ResultadosComponent],
   imports: [
-    CommonModule,
-    FormsModule
+    CommonModule,RouterModule,FormsModule
   ],
-  exports: [CapaComponent]
+  exports: [
+  	CapaComponent
+  ],
+  providers: [
+      ConsultaVehiculosService
+  ]
 })
 export class NucleoModule { }

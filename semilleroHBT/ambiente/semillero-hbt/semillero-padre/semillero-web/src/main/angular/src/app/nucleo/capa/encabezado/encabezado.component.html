@@ -1,6 +1,23 @@
-<p>
-  encabezado works!
-</p>
- <h1>
-    Welcome to {{ title }}!
-  </h1>
+<header class="sticky">
+  <h1>{{title}}</h1>
+  <a routerLink="personas-crear"
+     routerLinkActive="router-link-active"
+     class="button">
+     <p>
+    <span>Crear / Editar personas</span>
+  </a>
+  
+  <a routerLink="vehiculos-gestion"
+     routerLinkActive="router-link-active"
+     class="button">
+     <p>
+    <span>Gestionar vehiculos</span>
+  </a>
+  
+  <a routerLink="componente-apoyo"
+     routerLinkActive="router-link-active"
+     class="button">
+     <p>
+    <span>Apoyo</span>
+  </a>
+</header>
