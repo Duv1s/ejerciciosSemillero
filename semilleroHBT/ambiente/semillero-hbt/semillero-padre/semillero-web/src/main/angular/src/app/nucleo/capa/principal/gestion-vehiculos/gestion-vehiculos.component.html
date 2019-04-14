@@ -1,3 +1,38 @@
+<!-- <p>{{ nombre | uppercase }}</p>
+<p>{{ apellidos | uppercase }}</p>
+<p>{{ tipoIdentificacion | uppercase }}</p> -->
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<h2>{{ header }}</h2>
+<div class="wrapper">
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+
+      <label for="Marca">Marca</label>
+      <br>
+      <select class="form-control" name="Marca" [(ngModel)]="marca" (ngModelChange)="onMarcaSelected($event)">
+        <option [value]="marca"> </option>
+        <option *ngFor="let marca of listaMarcasDTO" [value]="marca.idMarca">{{marca.nombre}}</option>
+      </select>
+
+    </div>
+    <div class="form-group col-md-6">
+
+      <label for="Linea">Linea</label>
+      <br>
+      <select class="form-control" name="Linea" [(ngModel)]="linea">
+        <option *ngFor="let linea of listaLineasDTO" [value]="linea.idLinea">{{linea.nombre}}</option>
+
+      </select>
+
+    
+  <!-- <input value="Ingresar" type="button" (click)="consultarVehiculo()" /> -->
+  <!-- <input value="Consultar lineas Vehiculos : v" type="submit" (click)="consultarLineas()" /> -->
+    <!-- <pre>{{ listaVehiculoDTO | json }}</pre> -->
+</div>
 <p>
-  <app-resultados [marca]="vehiculo.marca" [placa]="vehiculo.placa"> </app-resultados>
+  <app-resultados [marca]="marca" [linea]="linea"> </app-resultados>
 </p>

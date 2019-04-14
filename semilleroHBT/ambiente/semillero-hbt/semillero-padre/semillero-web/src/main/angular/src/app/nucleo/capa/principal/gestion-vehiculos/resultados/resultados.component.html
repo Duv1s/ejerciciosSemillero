@@ -1,15 +1,85 @@
 <form>
-  <h2>
-    {{ marca }}
-  </h2>
-  <h3> Componente hijo / Presentacion</h3>
-  <div class="card">
-    <div class="section">
-      {{ placa }}
-    </div>
+
+    <button type="button" class="btn btn-outline-dark" value="Consultar vehiculos"
+    (click)="consultarVehiculos()">Consultar</button>
+
+
+  <div *ngIf="listaVehiculoDTO.length>0; else tableEmpty">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Marca</th>
+          <th>Linea</th>
+          <th>Placa</th>
+          <th>Modelo</th>
+          <th>Color</th>
+          <th><input value="Agregar" type="button" (click)="mostrarFormulario()"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehiculo  of listaVehiculoDTO">
+          <td>{{vehiculo.marca}}</td>
+          <td>{{vehiculo.linea}}</td>
+          <td>{{vehiculo.placa| uppercase}}</td>
+          <td>{{vehiculo.linea}}</td>
+          <td>{{vehiculo.color}}</td>
+          <input value="Borrar" type="button" (click)="eliminar(vehiculo)">
+          <input value="Editar" type="button" (click)="editar(vehiculo)">
+        </tr>
+      </tbody>
+    </table>
   </div>
-  
-  <h2>Llamado servicios</h2>
-  <input value="Consultar personas" type="submit" (click)="consultarPersonas()" />
-  <pre>{{ listaPersonasDTO | json }}</pre>
+  <ng-template #tableEmpty>
+    <h2>No hay resultados por mostrar</h2>
+  </ng-template>
 </form>
+
+<div *ngIf="showFormCrearVehiculo == true">
+  <div class="wrapper">
+    <h2>{{header}}</h2>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+
+        <label for="Marca">Marca</label>
+        <br>
+        <select class="form-control" name="Marca" [(ngModel)]="vehiculo.marca"
+          (ngModelChange)="onMarcaSelected($event)">
+          <option *ngFor="let marca of listaMarcasDTO" [value]="marca.idMarca">{{marca.nombre}}</option>
+        </select>
+
+      </div>
+      <div class="form-group col-md-6">
+
+        <label for="Linea">Linea</label>
+        <br>
+        <select class="form-control" name="Linea" [(ngModel)]="vehiculo.linea">
+          <option *ngFor="let linea of listaLineasDTO" [value]="linea.idLinea">{{linea.nombre}}</option>
+
+        </select>
+
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="Placa">Placa</label>
+        <input id="Placa" class="form-control" type="text" placeholder="Placa" name="Placa"
+          [(ngModel)]="vehiculo.placa" />
+
+      </div>
+      <div class="form-group col-md-6">
+
+        <label for="Modelo">Modelo</label>
+        <input id="Modelo" class="form-control" type="number" placeholder="Modelo" name="Modelo"
+          [(ngModel)]="vehiculo.modelo" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="Color">Color</label>
+        <input id="Color" class="form-control" type="text" placeholder="Color" [(ngModel)]="vehiculo.color"
+          name="Color" />
+      </div>
+
+    </div>
+    <input value="Ingresar" type="button" (click)="guardar(vehiculo)" />
+  </div>

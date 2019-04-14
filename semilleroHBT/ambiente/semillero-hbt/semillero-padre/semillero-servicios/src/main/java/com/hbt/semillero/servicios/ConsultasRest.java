@@ -1,6 +1,5 @@
 package com.hbt.semillero.servicios;
 
-
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -15,6 +14,7 @@ import com.hbt.semillero.dto.LineaDTO;
 import com.hbt.semillero.dto.MarcaDTO;
 import com.hbt.semillero.dto.PersonaDTO;
 import com.hbt.semillero.dto.ResultadoDTO;
+import com.hbt.semillero.dto.VehiculoDTO;
 import com.hbt.semillero.servicios.interfaces.IConsultasEjbLocal;
 
 /**
@@ -68,6 +68,46 @@ public class ConsultasRest {
 	}
 
 	/**
+	 * Consulta los vehiculos que cumplan con los criterios ingresados
+	 * 
+	 * @param idLinea
+	 * @param idMarca
+	 * @return
+	 */
+	@GET
+	@Path("/consultarVehiculos")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<VehiculoDTO> consultarVehiculos(@QueryParam("idLinea") long idLinea,
+			@QueryParam("idMarca") long idMarca) {
+		return consultaEJB.consultarVehiculos(idLinea, idMarca);
+	}
+
+	/**
+	 * Permite editar un vehiculo
+	 * 
+	 * @param vehiculoDTO
+	 * @return
+	 */
+	@POST
+	@Path("/editarVehiculo")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ResultadoDTO editarVehiculo(VehiculoDTO vehiculoDTO) {
+		return consultaEJB.editarVehiculo(vehiculoDTO);
+	}
+
+	/**
+	 * Permite eliminar un vehiculo por Id.
+	 * @param idVehiculo
+	 * @return
+	 */
+	@GET
+	@Path("/eliminarVehiculo")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ResultadoDTO eliminarVehiculo(@QueryParam("idVehiculo") Long idVehiculo) {
+		return consultaEJB.eliminarVehiculo(idVehiculo);
+	}
+
+	/**
 	 * Crea las personas en sus diferentes roles dentro del sistema.
 	 * 
 	 * @param persona
@@ -79,5 +119,16 @@ public class ConsultasRest {
 	public ResultadoDTO crearPersona(PersonaDTO persona) {
 		return consultaEJB.crearPersona(persona);
 	}
-	
+
+	/**
+	 * Crea los vehiculos  dentro del sistema.
+	 * @param vehiculo
+	 * @return
+	 */
+	@POST
+	@Path("/crearVehiculo")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ResultadoDTO crearVehiculo(VehiculoDTO vehiculo) {
+		return consultaEJB.crearVehiculo(vehiculo);
+	}
 }

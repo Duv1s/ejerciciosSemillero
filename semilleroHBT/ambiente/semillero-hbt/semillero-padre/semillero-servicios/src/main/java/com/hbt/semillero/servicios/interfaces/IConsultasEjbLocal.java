@@ -8,6 +8,7 @@ import com.hbt.semillero.dto.LineaDTO;
 import com.hbt.semillero.dto.MarcaDTO;
 import com.hbt.semillero.dto.PersonaDTO;
 import com.hbt.semillero.dto.ResultadoDTO;
+import com.hbt.semillero.dto.VehiculoDTO;
 
 /**
  * Expone los métodos del EJB ConsultasEJB
@@ -47,5 +48,33 @@ public interface IConsultasEjbLocal {
 	 * @return
 	 */
 	public ResultadoDTO crearPersona(PersonaDTO personaDTO);
+
+	/**
+	 * Crea los vehiculos dentro del sistema.
+	 * @param vehiculo
+	 * @return
+	 */
+	public ResultadoDTO crearVehiculo(VehiculoDTO vehiculo);
+
+	/**
+	 * Consulta los vehiculos que cumplan con los criterios ingresados.
+	 * @param idMarca 
+	 * @param idLinea 
+	 * @return
+	 */
+	public List<VehiculoDTO> consultarVehiculos(long idLinea, long idMarca);
+
+	/**
+	 * Edita los vehiculos dentro del sistema
+	 * @param vehiculoDTO
+	 * @return 
+	 */
+	public ResultadoDTO editarVehiculo(VehiculoDTO vehiculoDTO);
+
+	/**
+	 * Elimina los vehiculos dentro del sistema por Id.
+	 * @param idVehiculo
+	 */
+	public ResultadoDTO eliminarVehiculo(Long idVehiculo);
 
 }

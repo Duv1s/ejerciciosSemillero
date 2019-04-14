@@ -58,4 +58,22 @@ public class Vehiculo {
 		this.linea = linea;
 	}
 
+	/**
+	 * Método que permite obtener el atributo idVehiculo
+	 * @return idVehiculo
+	 */
+	public Long getIdVehiculo() {
+		return idVehiculo;
+	}
+
+	/**
+	 * Método que permite modificar el atributo idVehiculo.
+	 * @param idVehiculo
+	 */
+	public void setIdVehiculo(Long idVehiculo) {
+		this.idVehiculo = idVehiculo;
+	}
+	
+	
+
 }
